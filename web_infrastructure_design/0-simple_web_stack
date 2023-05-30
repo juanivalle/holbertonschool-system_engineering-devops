@@ -1,0 +1,46 @@
+Step 1: Understand the requirements
+The statement specifies that we must use the following components:
+
+1 server
+1 web server (Nginx)
+1 application server
+1 set of application files (code base)
+1 database (MySQL)
+Configure the domain name foobar.com with a www record that points to the server's IP address 8.8.8.8.
+
+
+Step 2: Understand the key concepts
+Before designing the infrastructure, we need to understand some key concepts mentioned in the statement:
+
+A server is a physical or virtual machine that provides computational resources and services over a network.
+The domain name is the human-readable address used to access a website. In this case, foobar.com is the domain name.
+The DNS (Domain Name System) record is used to associate a domain name with an IP address. The www record is a subdomain that points to a specific IP address.
+The web server is responsible for receiving HTTP requests from clients and sending them the corresponding responses. In this case, we will use Nginx as the web server.
+The application server runs the application code and dynamically generates web pages. It works in conjunction with the web server to process requests and deliver appropriate responses.
+The database stores and retrieves the information necessary for the application to function properly. We will use MySQL as the database in this infrastructure.
+
+Step 3: Design the infrastructure
+With the components and key concepts in mind, we can design the web infrastructure:
+
+Step 1: The user wants to access the website www.foobar.com.
+Step 2: The user types "www.foobar.com" in the browser and hits Enter.
+Step 3: The browser sends an HTTP request to the IP address associated with www.foobar.com.
+Step 4: The DNS server resolves the correct IP address based on the www record in the foobar.com domain name. In this case, the DNS server returns the IP address 8.8.8.8.
+Step 5: The HTTP request reaches the server with the IP address 8.8.8.8.
+Step 6: The Nginx web server receives the request and processes it. Nginx is responsible for handling multiple simultaneous requests and delivering the corresponding responses.
+Step 7: If the request requires application processing, the application server (e.g., a Java application server like Tomcat) receives the request from Nginx.
+Step 8: The application server executes the application code and generates a dynamic response based on the request.
+Step 9: If the application needs to access stored data, a query is made to the MySQL database.
+Step 10: The MySQL database retrieves the requested data and sends it back to the application server.
+Step 11: The application server receives the data from the database and generates a complete response.
+Step 12: The final response is sent from the application server to the Nginx web server.
+Step 13: The Nginx web server sends the response to the user's browser.
+Step 14: The user's browser receives the response and displays the www.foobar.com website.
+
+
+Step 4: Identify the issues with this infrastructure
+The designed infrastructure has some issues:
+
+SPOF (Single Point of Failure): If the single server fails, the website will become inaccessible.
+Downtime during maintenance: If maintenance is required on the web server, the website will be offline during that period.
+Inability to scale with high incoming traffic: If the website receives a large amount of traffic, a single server may not be enough to handle the load and may result in poor performance or site downtime.

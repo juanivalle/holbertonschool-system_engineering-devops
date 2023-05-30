@@ -1,0 +1,47 @@
+Step 1: Understand the requirements
+The requirements state that we need to add the following components to the infrastructure:
+
+3 firewalls
+1 SSL certificate for serving www.foobar.com over HTTPS
+3 monitoring clients for data collection
+
+Step 2: Understand the specifics of the infrastructure
+Before designing the infrastructure, let's understand the specifics of the added elements:
+
+Additional firewalls: Firewalls are added to provide network security by controlling and filtering incoming and outgoing network traffic. They help protect the servers from unauthorized access and potential threats.
+SSL certificate: An SSL certificate is added to enable HTTPS, which encrypts the communication between the server and the client. This ensures the confidentiality and integrity of the transmitted data.
+Monitoring clients: Monitoring clients are deployed to collect data about the infrastructure's performance, health, and usage. They provide insights into system metrics, logs, and other relevant information for analysis and troubleshooting.
+
+Step 3: Design the infrastructure
+Based on the requirements, we can design the three-server web infrastructure:
+
+Server 1:
+
+Firewall
+Web Server (Nginx) with SSL certificate for HTTPS
+Application Server
+Application Files
+Server 2:
+
+Firewall
+Application Server
+Application Files
+Server 3:
+
+Firewall
+Database (MySQL)
+Monitoring clients:
+
+Deployed on each server to collect monitoring data (e.g., system metrics, logs) and send it to a monitoring service such as Sumologic.
+
+Step 4: Understand the issues with this infrastructure
+The designed infrastructure may have the following issues:
+
+Terminating SSL at the load balancer level: Terminating SSL at the load balancer rather than the web server can be an issue as it introduces an additional point of vulnerability. The decrypted traffic is then forwarded to the web server in plain HTTP, potentially exposing sensitive data.
+Having only one MySQL server capable of accepting writes: Having a single MySQL server for write operations introduces a single point of failure. If the MySQL server fails, the website's functionality that relies on write operations will be affected.
+Servers with all the same components: Having servers with the same components (database, web server, and application server) can lead to a lack of redundancy and scalability. If one server fails, it may impact all components, affecting the availability and performance of the website.
+Addressing these issues would involve implementing measures such as:
+
+Terminating SSL at the web server level or using secure communication between the load balancer and web server.
+Setting up a database replication or clustering mechanism to ensure high availability and fault tolerance.
+Introducing load balancing across multiple servers to distribute the workload and increase scalability.

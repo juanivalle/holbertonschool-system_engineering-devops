@@ -1,0 +1,32 @@
+Step 1: Understand the requirements
+The updated requirements state that we need to add the following components to the infrastructure:
+
+1 server
+1 load-balancer (HAproxy) configured as a cluster with another load-balancer
+Split components (web server, application server, database) with their own servers
+
+Step 2: Understand the specifics of the infrastructure
+Before designing the infrastructure, let's understand the specifics of the added elements:
+
+Additional server: The additional server is being added to enhance the infrastructure's performance, provide redundancy, and distribute the workload more effectively.
+Load-balancer (HAproxy): The load-balancer is responsible for distributing incoming traffic across multiple servers to ensure optimal resource utilization and high availability. In this case, we will configure the HAproxy load-balancer as a cluster with another HAproxy load-balancer for redundancy and fault tolerance.
+Split components: Splitting the components onto separate servers provides better resource isolation, scalability, and flexibility. Each component (web server, application server, database) will have its own dedicated server.
+
+Step 3: Design the infrastructure
+Based on the requirements, we can design the web infrastructure:
+
+Server 1:
+
+Web Server
+Application Server
+Database
+Server 2:
+
+Load-balancer (HAproxy) configured as a cluster with another HAproxy load-balancer
+
+Step 4: Explanation of the additional elements
+
+Additional server: The additional server is added to distribute the workload and provide redundancy. It ensures that if one server fails, the other can handle the traffic and maintain the availability of the website.
+Load-balancer (HAproxy) cluster: Configuring the HAproxy load-balancer as a cluster with another HAproxy load-balancer ensures high availability and fault tolerance. If one load-balancer fails, the other can take over the load-balancing responsibilities, minimizing downtime and maintaining a smooth user experience.
+Split components: Splitting the components onto separate servers allows each component to utilize dedicated resources and scale independently. It provides better isolation, performance, and flexibility for managing and scaling each component as needed.
+By adding the additional server and configuring the load-balancer as a cluster, the infrastructure gains improved performance, high availability, and scalability.

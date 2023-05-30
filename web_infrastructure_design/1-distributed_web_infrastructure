@@ -1,0 +1,46 @@
+Step 1: Understand the requirements
+The statement specifies that we need to add the following components to the infrastructure:
+
+2 servers
+1 web server (Nginx)
+1 application server
+1 load balancer (HAproxy)
+1 set of application files (code base)
+1 database (MySQL)
+
+Step 2: Understand the specifics of the infrastructure
+Before designing the infrastructure, let's understand some specifics about the added elements:
+
+Additional servers: The two additional servers are being added to enhance the infrastructure's performance, provide redundancy, and distribute the load efficiently.
+Web server (Nginx): The web server handles HTTP requests, serves static content, and communicates with the application server to process dynamic requests.
+Application server: The application server executes the application code, generates dynamic content, and communicates with the web server to deliver responses to client requests.
+Load balancer (HAproxy): The load balancer distributes incoming traffic across multiple servers to ensure optimal resource utilization and high availability. The load balancer is configured with a distribution algorithm to determine how traffic is routed.
+Application files: The application files contain the code base of the website/application that will be hosted and executed on the application server.
+Database (MySQL): The database stores and retrieves data required by the application. It provides a reliable and structured way to manage persistent data.
+
+Step 3: Design the infrastructure
+Based on the requirements, we can design the three-server web infrastructure:
+
+Server 1:
+
+Web Server (Nginx)
+Application Server
+Application Files
+Server 2:
+
+Application Server
+Application Files
+Server 3:
+
+Database (MySQL)
+Load Balancer (HAproxy)
+
+Configured with a distribution algorithm (e.g., round-robin) to evenly distribute incoming traffic across the application servers.
+
+Step 4: Understand the issues with this infrastructure
+The designed infrastructure may have the following issues:
+
+Single Points of Failure (SPOF): If any of the servers fail, it may impact the availability of the website.
+Security issues: The infrastructure lacks a firewall and does not enforce HTTPS, which can lead to vulnerabilities and potential security breaches.
+Lack of monitoring: The infrastructure lacks a monitoring system, making it challenging to identify and address performance issues, errors, or anomalies.
+Overall, this three-server web infrastructure provides improved performance, scalability, and redundancy compared to a single-server setup. However, it still has certain limitations and areas that need improvement, such as addressing the SPOF, enhancing security measures, and implementing monitoring tools.
